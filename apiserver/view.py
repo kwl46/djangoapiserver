@@ -1,0 +1,17 @@
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
+from rest_framework import status
+
+@api_view(["GET"])
+def index(request):
+    data = {"result":"success", "data":{{"id":"kiwon", "name":"기원"}}}
+    return Response(data, status=status.HTTP_200_OK)
+
+from django.contrib import admin
+from django.views import path
+from .view import index
+
+urlpatterns = [
+    path("admin/", admin.urls),
+    path("", index)
+]
