@@ -53,7 +53,7 @@ jobs:
             if [ "$(docker ps -a -q -f name=^/djangoapiserver)" ]; then
               echo "컨테이너 있음"
               docker stop djangoapiserver
-              docker rmi $NAME/djangoapiserver:latest
+              docker rmi (docker images -q yjsco653/djangoapiserver)
             else
               echo "컨테이너 없음"
             fi
