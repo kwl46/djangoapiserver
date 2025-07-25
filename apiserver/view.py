@@ -6,12 +6,3 @@ from rest_framework import status
 def index(request):
     data = {"result":"success", "data":{{"id":"kiwon", "name":"기원"}}}
     return Response(data, status=status.HTTP_200_OK)
-
-from django.contrib import admin
-from django.views import path
-from .view import index
-
-urlpatterns = [
-    path("admin/", admin.urls),
-    path("", index)
-]
